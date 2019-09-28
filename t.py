@@ -27,7 +27,9 @@ def create_notes():
 			
 			arr1 = ['А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч',
 			'Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с',
-			'т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я', ' ', '.', '?', '!']
+			'т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ','.','?','!','1','2','3','4','5','6','7','8','9',
+			'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+			'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', ',',';',':']
 
 			arr2 = []
 			for i in range(len(arr1)):
@@ -52,7 +54,7 @@ def create_notes():
 
 		crypto_pass_window = Toplevel(window)
 		crypto_pass_window.title("Create password")
-		say_create_pass = Label(crypto_pass_window, text="Введи число от 2-50", font=("Ubuntu", 25))
+		say_create_pass = Label(crypto_pass_window, text="Придумайте пароль(Только цифры, до 6 знаков)", font=("Ubuntu", 25))
 		say_create_pass.pack()
 		crypto_pass = Entry(crypto_pass_window)
 		crypto_pass.pack()
@@ -61,29 +63,17 @@ def create_notes():
 
 	window = Toplevel(root)
 	window.title('Create Note')
-	write_label = Entry(window)
+	title_name = Label(window, text="↓Название ↓↓Текст", font=("Ubuntu", 14))
+	title_name.pack()
+	write_label = Entry(window, text="Название", font=("Ubuntu", 14))
 	write_label.pack()
-	write_text = Text(window, width=25, height=5)
+	write_text = Text(window, width=50, height=20, font=("Ubuntu", 14))
 	write_text.pack()
 	button_free_create = Button(window, text="Создать", command=get_text)
 	button_coding_create = Button(window, text="Закодировать", command=create_pass)
 	button_free_create.pack()
 	button_coding_create.pack()
 
-def window_note1():
-	window = Toplevel(root)
-
-
-def window_note2():
-	window = Toplevel(root)
-
-
-def window_note3():
-	window = Toplevel(root)
-
-
-def window_note4():
-	window = Toplevel(root)
 #Чтение заметок
 def all_notes_list():
 	
@@ -118,7 +108,9 @@ def all_notes_list():
 
 						arr1 = ['А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч',
 						'Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с',
-						'т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я', ' ', '.', '?', '!']
+						'т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ','.','?','!','1','2','3','4','5','6','7','8','9',
+						'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+						'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', ',',';',':']
 
 						arr2 = []
 						for i in range(len(arr1)):
@@ -150,7 +142,9 @@ def all_notes_list():
 
 					arr1 = ['А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч',
 					'Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с',
-					'т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я', ' ', '.', '?', '!']
+					'т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ','.','?','!','1','2','3','4','5','6','7','8','9',
+					'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+					'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',',',';',':']
 
 					arr2 = []
 					for i in range(len(arr1)):
@@ -222,12 +216,13 @@ def all_notes_list():
 				def decoding_text():
 					read_decoding_text = Toplevel(read_window)
 					read_decoding_text.title("Read Note")
-					read_decoding_text.geometry("420x260")
 					input_pass = confirm_pass.get()
 
 					arr1 = ['А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч',
 					'Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с',
-					'т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я', ' ', '.', '?', '!']
+					'т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ','.','?','!','1','2','3','4','5','6','7','8','9',
+					'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+					'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',',',';',':']
 
 					arr2 = []
 					for i in range(len(arr1)):
@@ -261,7 +256,6 @@ def all_notes_list():
 		
 			
 		if first2(get_listbox_name) == "NC":
-			read_window.geometry("420x260")
 			open_note = open(get_listbox_name)
 			read_note = open_note.read()
 			read_label = Label(read_window, text=read_note, font=("Ubuntu", 14))
@@ -291,32 +285,19 @@ def all_notes_list():
 
 root=Tk()
 root.title('Notes')
-root.geometry("380x430")
-
-frame_top = Frame(root)
+root.geometry("280x260")
 frame_bot = Frame(root)
 frame_bot2 = Frame(root)
 frame_bot3 = Frame(root)
 
-button_note1 = Button(frame_top, text='Note1', heigh=5, width=18, bg='lightblue', command=window_note1)
-button_note2 = Button(frame_top, text='Note2', heigh=5, width=18, bg='lightblue', command=window_note2)
-button_note3 = Button(frame_bot, text='Note3', heigh=5, width=18, bg='lightblue', command=window_note3)
-button_note4 = Button(frame_bot, text='Note4', heigh=5, width=18, bg='lightblue', command=window_note4)
 button_all_notes = Button(frame_bot2, text='☰', bg='lightgreen', font=("Ubuntu", 25), heigh=2, width=5, command=all_notes_list)
-button_advanced_setting = Button(frame_bot2, text='⚙', bg='lightgreen', font=("Ubuntu", 25), heigh=2, width=5)
 button_create_note = Button(frame_bot3, text='Create', bg='lightblue', font=("Ubuntu", 25),heigh=2, width=9, command=create_notes)
 
-frame_top.pack()
 frame_bot.pack()
 frame_bot2.pack()
 frame_bot3.pack()
 
-button_note1.pack(side=LEFT, pady=10)
-button_note2.pack(side=LEFT)
-button_note3.pack(side=LEFT)
-button_note4.pack(side=LEFT)
-button_all_notes.pack(side=LEFT, pady=8)
-button_advanced_setting.pack(side=RIGHT)
+button_all_notes.pack(side=TOP, pady=16)
 button_create_note.pack()
 
 root.mainloop()
